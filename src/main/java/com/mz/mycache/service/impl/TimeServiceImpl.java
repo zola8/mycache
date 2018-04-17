@@ -6,12 +6,14 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.stereotype.Service;
 
+import com.mz.mycache.cache.Cache;
 import com.mz.mycache.service.TimeService;
 
 @Service
 public class TimeServiceImpl implements TimeService {
 
 	@Override
+	@Cache(valid=30000)
 	public String getTime() {
 		ZonedDateTime dubaiTime = ZonedDateTime.now(ZoneId.of("Asia/Dubai"));
 
