@@ -5,22 +5,23 @@ import java.time.LocalTime;
 /**
  * Utility class for handling cache.
  */
-public class CacheUtils {
+public class CacheUtils
+{
 
-	private CacheUtils() {
+	private CacheUtils()
+	{
 		// hidden constructor
 	}
 
 	/**
 	 * Checking the expiration.
 	 * 
-	 * @param baseTime
-	 *            time to check
-	 * @param expiration
-	 *            expiration in milliseconds
+	 * @param baseTime time to check
+	 * @param expiration expiration in milliseconds
 	 * @return true if expired otherwise false
 	 */
-	public static boolean isExpired(LocalTime baseTime, int expiration) {
+	public static boolean isExpired(LocalTime baseTime, int expiration)
+	{
 		LocalTime now = LocalTime.now();
 		LocalTime time = baseTime.plusSeconds(expiration / 1000);
 

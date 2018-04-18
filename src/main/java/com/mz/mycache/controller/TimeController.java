@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mz.mycache.service.TimeService;
 
 @RestController
-public class TimeController {
+public class TimeController
+{
 
 	@Autowired
 	private TimeService timeService;
 
 	@RequestMapping("/")
-	public String getTime() {
+	public String getTime()
+	{
 		return timeService.getTime();
 	}
 

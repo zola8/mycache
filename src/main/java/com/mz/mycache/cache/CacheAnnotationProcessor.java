@@ -10,24 +10,30 @@ import org.springframework.util.ReflectionUtils.MethodCallback;
 import com.mz.mycache.service.CacheService;
 
 @Component
-public class CacheAnnotationProcessor implements BeanPostProcessor {
+public class CacheAnnotationProcessor implements BeanPostProcessor
+{
 
 	@Autowired
 	private CacheService<String> cacheService;
 
 	@Override
-	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+	public Object postProcessBeforeInitialization(Object bean, String beanName)
+	throws BeansException
+	{
 		scanMyCacheAnnotation(bean, beanName);
 
 		return bean;
 	}
 
 	@Override
-	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+	public Object postProcessAfterInitialization(Object bean, String beanName)
+	throws BeansException
+	{
 		return bean;
 	}
 
-	private void scanMyCacheAnnotation(Object bean, String beanName) {
+	private void scanMyCacheAnnotation(Object bean, String beanName)
+	{
 		Class<?> managedBeanClass = bean.getClass();
 		MethodCallback methodCallback = new CacheMethodCallback(cacheService);
 

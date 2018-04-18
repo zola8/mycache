@@ -6,17 +6,22 @@ import org.springframework.util.ReflectionUtils.MethodCallback;
 
 import com.mz.mycache.service.CacheService;
 
-public class CacheMethodCallback implements MethodCallback {
+public class CacheMethodCallback implements MethodCallback
+{
 
 	private CacheService<String> cacheService;
 
-	public CacheMethodCallback(CacheService<String> cacheService) {
+	public CacheMethodCallback(CacheService<String> cacheService)
+	{
 		this.cacheService = cacheService;
 	}
 
 	@Override
-	public void doWith(Method method) throws IllegalArgumentException, IllegalAccessException {
-		if (!method.isAnnotationPresent(Cache.class)) {
+	public void doWith(Method method)
+	throws IllegalArgumentException, IllegalAccessException
+	{
+		if (!method.isAnnotationPresent(Cache.class))
+		{
 			return;
 		}
 
