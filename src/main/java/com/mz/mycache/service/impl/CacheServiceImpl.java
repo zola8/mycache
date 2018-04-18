@@ -22,6 +22,20 @@ public class CacheServiceImpl<T> implements CacheService<T>
 	@Override
 	public void registerValue(String methodName, int expiration, T value)
 	{
+		if (methodName == null)
+		{
+			LOGGER.warn("Invalid method name.");
+
+			return;
+		}
+
+		if (map.containsKey(methodName))
+		{
+			LOGGER.warn("Already registered ?!");
+
+			return;
+		}
+
 		LocalTime time = LocalTime.now();
 		CacheMetaData<T> metaData = new CacheMetaData<T>(expiration, time, value);
 
@@ -47,6 +61,12 @@ public class CacheServiceImpl<T> implements CacheService<T>
 
 		value.setData(data);
 		value.setTime(LocalTime.now());
+	}
+
+	@Override
+	public void clear()
+	{
+		map.clear();
 	}
 
 }

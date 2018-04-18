@@ -36,4 +36,9 @@ public interface CacheService<T>
 	 */
 	void update(String methodName, T data);
 
+	/**
+	 * Clears the whole cache.
+	 */
+	void clear();
+
 }
