@@ -23,7 +23,7 @@ public class CacheAspect
 	private CacheService<String> cacheService;
 
 	@Around("@annotation(com.mz.mycache.cache.Cache)")
-	public Object logExecutionTime(ProceedingJoinPoint joinPoint)
+	public Object checkCache(ProceedingJoinPoint joinPoint)
 	throws Throwable
 	{
 		String actualMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();

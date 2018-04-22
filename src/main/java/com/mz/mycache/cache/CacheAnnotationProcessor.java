@@ -25,13 +25,6 @@ public class CacheAnnotationProcessor implements BeanPostProcessor
 		return bean;
 	}
 
-	@Override
-	public Object postProcessAfterInitialization(Object bean, String beanName)
-	throws BeansException
-	{
-		return bean;
-	}
-
 	private void scanMyCacheAnnotation(Object bean, String beanName)
 	{
 		Class<?> managedBeanClass = bean.getClass();
